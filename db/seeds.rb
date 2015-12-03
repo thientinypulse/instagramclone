@@ -7,12 +7,21 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Photo.destroy_all
+Comment.destroy_all
 
-10.times do 
+10.times do
 	Photo.create(
-		username: Faker::Name.name, 
+		username: Faker::Name.name,
 		caption: Faker::Lorem.sentence,
 		likes_count: Faker::Number.number(2),
 		url: 'http://loremflickr.com/320/240/' + Faker::Lorem.word
-		)
+	)
+end
+
+Photo.all.each do |photo|
+  rand(3).times do
+    photo.comments << Comment.create(
+      body: Faker::Lorem.sentence
+    )
+  end
 end
