@@ -1,2 +1,5 @@
 <h1>List of all photo</h1>
-<p>Find me in app/views/photos_controller/index.html.erb</p>
+
+<% @photos.each do |photo| %>
+	<%= render partial: "photo", locals: {photo: photo} %>
+<% end %>
