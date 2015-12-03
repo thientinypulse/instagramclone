@@ -3,3 +3,5 @@
 <% @photos.each do |photo| %>
 	<%= render partial: "photo", locals: {photo: photo} %>
 <% end %>
+
+<%= paginate @photos %>
